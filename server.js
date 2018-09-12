@@ -7,6 +7,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const connection = require('./config/connection');
 const routes = require('./routes/app');
+const PORT = process.env.PORT || 5000;
 
 app.use('/', routes);
 //setting template engine
@@ -15,6 +16,6 @@ app.set('view engine', 'ejs');
 //setting bodyparser
 app.use(bodyparser.urlencoded({extended: true}));
 
-app.listen(5000, function () {
-	console.log('Listening to port 5000');
+app.listen(PORT, function () {
+	console.log('Listening to port ' + PORT);
 });
